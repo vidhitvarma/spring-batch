@@ -113,13 +113,14 @@ public class BatchConfig {
 				.processor(itemProcessor())
 				.writer(employeeWriter)
 				.build();
+		
 	}
 	
 
 	
 	
-	
-	private TaskExecutor taskExecutor() {
+	@Bean
+	public TaskExecutor taskExecutor() {
 		ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
 		executor.setMaxPoolSize(8);
 		executor.setCorePoolSize(8);
@@ -127,13 +128,5 @@ public class BatchConfig {
 		return executor;
 	}
 	
-	
 
-//	@Bean
-//	public RepositoryItemWriter<Employee> dataWriter(){
-//		RepositoryItemWriter<Employee> writer = new RepositoryItemWriter<Employee>();
-//		writer.setRepository(employeeRepository);
-//		writer.setMethodName("save");
-//		return writer;
-//	}
 }
